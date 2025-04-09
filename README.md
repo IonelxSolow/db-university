@@ -31,8 +31,8 @@ Entità principali:          | Relazioni:
 - struttura delle tabelle
 
 1. dipartimento
-- id        | INT PK - NOT NULL
-- nome      | VARCHAR(50)
+- id                     | INT PK - NOT NULL
+- nome                   | VARCHAR(50)
 
 2. corso di laurea
 - id                     | INT PK - NOT NULL
