@@ -25,7 +25,32 @@ Entità principali:          | Relazioni:
 2. corso di laurea          | diversi *Corsi* (es.: Letteratura Latina, Sistemi Operativi 1, ecc...
 3. corso                    | diversi *Insegnanti*, più appelli d'*Esame*
 4. insegnante               | eroga il *corso*
-5. esame                    | elativo ad un solo *corso*
+5. esame                    | relativo ad un solo *corso*
 6. studente                 | un solo *Corso di Laurea*, a più appelli di *Esame*
 
+- struttura delle tabelle
 
+1. dipartimento
+- id        | INT PK - NOT NULL
+- nome      | VARCHAR(50)
+
+2. corso di laurea
+- id        | INT PK - NOT NULL
+- nome      | VARCHAR(50)
+- id dipartimento
+
+3. corso
+- id        | INT PK - NOT NULL
+- nome      | VARCHAR(50)
+
+4. insegnante
+- id        | INT PK - NOT NULL
+- nome      | VARCHAR(50)
+
+5. esame
+- id        | INT PK - NOT NULL
+- nome      | VARCHAR(50)
+
+6. studente
+- id        | INT PK - NOT NULL
+- nome      | VARCHAR(50)
