@@ -35,22 +35,28 @@ Entità principali:          | Relazioni:
 - nome      | VARCHAR(50)
 
 2. corso di laurea
-- id        | INT PK - NOT NULL
-- nome      | VARCHAR(50)
-- id dipartimento
+- id                     | INT PK - NOT NULL
+- nome                   | VARCHAR(50)
+- id dipartimento        | FK -> dipartimento id
 
 3. corso
-- id        | INT PK - NOT NULL
-- nome      | VARCHAR(50)
+- id                     | INT PK - NOT NULL
+- nome                   | VARCHAR(50)
+- id corso di laurea     | FK -> corso di laurea id
 
 4. insegnante
-- id        | INT PK - NOT NULL
-- nome      | VARCHAR(50)
+- id                     | INT PK - NOT NULL
+- nome                   | VARCHAR(50)
+- cognome                | VARCHAR(50)
+- email                  | VARCHAR(100)
 
 5. esame
-- id        | INT PK - NOT NULL
-- nome      | VARCHAR(50)
+- id                     | INT PK - NOT NULL
+- nome                   | VARCHAR(50)
+- id corso               | FK -> corso id
 
 6. studente
-- id        | INT PK - NOT NULL
-- nome      | VARCHAR(50)
+- id                     | INT PK - NOT NULL
+- nome                   | VARCHAR(50)
+- cognome                | VARCHAR(50)
+- id corso di laurea     | FK -> corso di laurea
