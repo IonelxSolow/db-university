@@ -19,11 +19,13 @@ Utilizzare https://www.drawio.com/ per la creazione dello schema.
 Esportare quindi il diagramma in png, caricarlo nella repo in un file index.html  nel quale inserite l'immagine come visto in classe.
 
 
-principali
+Entità principali:          | Relazioni:
+                            |
+1. dipartimento             | più *Corsi di Laurea* (es.: Civiltà e Letterature Classiche, Informatica, ecc...
+2. corso di laurea          | diversi *Corsi* (es.: Letteratura Latina, Sistemi Operativi 1, ecc...
+3. corso                    | diversi *Insegnanti*, più appelli d'*Esame*
+4. insegnante               | eroga il *corso*
+5. esame                    | elativo ad un solo *corso*
+6. studente                 | un solo *Corso di Laurea*, a più appelli di *Esame*
 
-1. dipartimento
-2. corso di laurea
-3. corso
-4. insegnante
-5. esame
-6. studente
+
