@@ -28,14 +28,16 @@ Entità principali:          | Relazioni:
 5. esame                    | relativo ad un solo *corso*
 6. studente                 | un solo *Corso di Laurea*, a più appelli di *Esame*
 
+
 - struttura delle tabelle
 
 1. dipartimento
-- id                     | INT PK - NOT NULL
+- id                     | INT PK AI - NOT NULL
 - nome                   | VARCHAR(50)
 
+
 2. corso di laurea
-- id                     | INT PK - NOT NULL
+- id                     | INT PK AI - NOT NULL
 - nome                   | VARCHAR(50)
 - id dipartimento        | FK -> dipartimento id
 
@@ -45,18 +47,19 @@ Entità principali:          | Relazioni:
 - id corso di laurea     | FK -> corso di laurea id
 
 4. insegnante
-- id                     | INT PK - NOT NULL
+- id                     | INT PK AI - NOT NULL
 - nome                   | VARCHAR(50)
 - cognome                | VARCHAR(50)
 - email                  | VARCHAR(100)
 
 5. esame
-- id                     | INT PK - NOT NULL
+- id                     | INT PK AI - NOT NULL
 - nome                   | VARCHAR(50)
 - id corso               | FK -> corso id
 
 6. studente
-- id                     | INT PK - NOT NULL
+- id                     | INT PK AI - NOT NULL
 - nome                   | VARCHAR(50)
 - cognome                | VARCHAR(50)
 - id corso di laurea     | FK -> corso di laurea
+
