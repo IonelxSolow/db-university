@@ -18,11 +18,11 @@ JOIN course_teacher ON courses.id = course_teacher.course_id
 WHERE course_teacher.teacher_id = 44;
 
 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
-SELECT students.surname, students.name, degrees.*, departments.name AS department_name
+SELECT students.name, students.surname, degrees.*, departments.name AS department_name
 FROM students
 JOIN degrees ON students.degree_id = degrees.id
 JOIN departments ON degrees.department_id = departments.id
-ORDER BY students.surname, students.name;
+ORDER BY students.name, students.surname;
 
 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
 SELECT degrees.name AS degree_name, courses.name AS course_name, teachers.surname AS teacher_surname, teachers.name AS teacher_name
@@ -41,17 +41,34 @@ JOIN departments ON degrees.department_id = departments.id
 WHERE departments.name = 'Dipartimento di Matematica';
 
 7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, stampando anche il voto massimo. Successivamente, filtrare i tentativi con voto minimo 18.
-
+SELECT students.name, students.surname, COUNT(*) AS tentativi, MAX(exam_student.vote) AS max_vote
+FROM students
+JOIN exam_student ON students.id = exam_student.student_id
+JOIN exams ON exam_student.exam_id = exams.id
+GROUP BY students.id, students.name, students.surname, exams.course_id
+HAVING MIN(exam_student.vote) >= 18;
 
 >>> GROUP BY
 1. Contare quanti iscritti ci sono stati ogni anno
-
+SELECT YEAR(enrolment_date) AS year, COUNT(*) AS enrolled_students
+FROM students
+GROUP BY YEAR(enrolment_date);
 
 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+SELECT office_address, COUNT(*) AS teachers_count
+FROM teachers
+GROUP BY office_address
 
 3. Calcolare la media dei voti di ogni appello d'esame
+SELECT exam_id, AVG(vote) AS media_voto
+FROM exam_student
+GROUP BY exam_id
 
 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
+SELECT departments.name, COUNT(*) AS degrees_count
+FROM degrees
+JOIN departments ON degrees.department_id = departments.id
+GROUP BY departments.name;
 
 >>> RIPASSINO SELECT (extra bonus opzionale per il weekend):
 
